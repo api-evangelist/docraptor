@@ -1,0 +1,88 @@
+{
+    "name": "DocRaptor",
+    "description": "Forget tedious coding or server management: Our simple API that makes it easy to convert HTML to PDF, XLS and Excel files.",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/576-docraptor.jpg",
+    "tags": [
+        "api provider",
+        "conversions",
+        "documents",
+        "have api",
+        "office",
+        "pdf"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/docraptor\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "DocRaptor",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/576-docraptor.jpg",
+            "humanURL": "http:\/\/docraptor.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/docraptor-openapi.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Base",
+            "url": "https:\/\/docraptor.com\/docs"
+        },
+        {
+            "type": "Blog",
+            "url": "http:\/\/docraptor.com\/blog"
+        },
+        {
+            "type": "Blog",
+            "url": "http:\/\/docraptor.com\/blog"
+        },
+        {
+            "type": "Blog RSS",
+            "url": "http:\/\/docraptor.com\/blog\/atom.xml"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/docraptor"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "http:\/\/www.crunchbase.com\/company\/docraptor"
+        },
+        {
+            "type": "Developers",
+            "url": "http:\/\/docraptor.com\/documentation"
+        },
+        {
+            "type": "Email",
+            "url": "support@docraptor.com"
+        },
+        {
+            "type": "Email",
+            "url": "YOUR_API_KEY_HERE@docraptor.com"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/docraptor"
+        },
+        {
+            "type": "Pricing",
+            "url": "https:\/\/docraptor.com\/signup"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/doc_raptor"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/docraptor.com"
+        }
+    ]
+}
