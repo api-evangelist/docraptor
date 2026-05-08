@@ -15,21 +15,42 @@ tags:
 - Rate Limiting
 - Quotas
 - Throttling
-description: Placeholder rate-limit artifact for DocRaptor. Replace with real limits once researched.
-notes: Initial scaffold — limits have not yet been reconciled.
+description: >-
+  DocRaptor's primary throttle is the per-plan monthly document budget;
+  documents above the budget are billed at the plan-specific overage rate.
+  DocRaptor does not publish a per-second numeric API ceiling; concurrency
+  per account is controlled via async (POST /async_docs) and Prince
+  rendering capacity. 429 is returned on excess.
+notes: >-
+  Synchronous renders block until completion; async renders return a status
+  URL for polling. Reconciled flagged false until per-second ceiling is
+  publicly documented.
 sources:
-- https://docraptor.com/
+- https://docraptor.com/documentation
+- https://docraptor.com/plans
 responseCodes:
   throttled: 429
 limits:
-- name: Default
+- name: Per-plan monthly documents
   scope: account
-  metric: varies
-  limit: see provider documentation
-  notes: Pending reconciliation.
+  metric: documents/month
+  limit: see plan
+  notes: Free 5; Basic 125; Pro 325; Premium 1,250; Max 5,000; Bronze 15,000; Silver 40,000; Gold 100,000.
+- name: REST API requests
+  scope: api_token
+  metric: requests
+  limit: see DocRaptor support
+  notes: Numeric per-second ceiling not publicly documented; 429 on excess.
+- name: Concurrent renders
+  scope: account
+  metric: concurrent
+  limit: contact support
+  notes: Use async_docs for high-concurrency workloads.
 policies:
 - name: Backoff Strategy
-  description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
+  description: Honor 429; use async POST /async_docs and poll the status URL.
+- name: Test mode
+  description: Test renders are unlimited and free but watermarked.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

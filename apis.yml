@@ -3,7 +3,10 @@ url: https://raw.githubusercontent.com/api-evangelist/docraptor/refs/heads/main/
 name: DocRaptor
 x-type: company
 description: >-
-  DocRaptor is an HTML-to-PDF and HTML-to-Excel generation API powered by Prince XML. Robust handling of CSS-paged media and headers/footers.
+  DocRaptor is an HTML-to-PDF / HTML-to-Excel document generation API powered
+  by Prince XML. Strong CSS-paged-media support including headers/footers,
+  page breaks, watermarks, accessibility tags. Synchronous and asynchronous
+  document creation; status polling; document hosting.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Document Generation
@@ -11,13 +14,43 @@ tags:
   - HTML
   - Excel
   - API
+  - Prince
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
-apis: []
+apis:
+  - aid: docraptor:rest
+    name: DocRaptor REST API
+    description: >-
+      REST API for generating PDF, XLS, XLSX from HTML/CSS or URL. HTTP Basic
+      auth using API key as username. Sync POST /docs and async POST
+      /async_docs with status polling. Test documents are unlimited and free
+      but watermarked.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://docraptor.com/documentation
+    baseURL: https://api.docraptor.com
+    tags:
+      - REST
+      - PDF
+      - Excel
+      - HTML
+      - Async
+    properties:
+      - type: Documentation
+        url: https://docraptor.com/documentation
+      - type: APIReference
+        url: https://docraptor.com/documentation/api
+      - type: SDK
+        url: https://github.com/DocRaptor
 common:
   - type: Website
     url: https://docraptor.com/
+  - type: Documentation
+    url: https://docraptor.com/documentation
+  - type: Pricing
+    url: https://docraptor.com/plans
+  - type: GitHub
+    url: https://github.com/DocRaptor
   - type: Plans
     url: plans/docraptor-plans-pricing.yml
   - type: RateLimits

@@ -5,7 +5,7 @@ provider: DocRaptor
 providerId: docraptor
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
 - Document Generation
 - PDF
@@ -13,29 +13,253 @@ tags:
 - Excel
 - API
 - Plans
-description: Placeholder plans/pricing artifact for DocRaptor. Replace with real published pricing once
-  the pipeline researches the provider's plans page.
-notes: Initial scaffold — plans/pricing have not yet been reconciled.
+- Pricing
+description: >-
+  DocRaptor sells nine published tiers — Free, Basic, Professional, Premium,
+  Max, Bronze, Silver, Gold and Enterprise — with a flat monthly fee and a
+  per-document overage rate when usage exceeds the included monthly bundle.
+  Test documents are unlimited and free (watermarked).
+notes: >-
+  Effective per-document rates range from ~$0.12 on Basic down to ~$0.025
+  on Gold. Rates / counts as of 2026-05-08.
 sources:
-- https://docraptor.com/
+- https://docraptor.com/plans
+- https://docraptor.com/documentation
 plans:
-- id: docraptor-default
-  name: To Be Reconciled
-  type: enterprise
-  description: Initial scaffold; replace with provider plan tiers once pricing is reconciled.
+- id: docraptor-free
+  name: Free
+  type: free
+  description: 5 documents/month free; unlimited free watermarked test documents.
   entries:
-  - label: API Access
-    name: api_access
+  - label: Plan price
+    name: monthly_price
     type: flat
-    metric: varies
+    metric: month
     limit: -1
-    timeFrame: usage
+    timeFrame: month
     geo: global
     unit: 1
-    price: see https://docraptor.com/
+    price: 0
+    currency: USD
     userMultiplied: false
-  elements:
-  - name: Pending Reconciliation
+  - label: Included documents
+    name: free_docs
+    type: tier
+    metric: documents/month
+    limit: 5
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 0
+    userMultiplied: false
+- id: docraptor-basic
+  name: Basic
+  type: subscription
+  description: $15/month; 125 documents; $0.12/doc overage.
+  entries:
+  - label: Plan price
+    name: monthly_price
+    type: flat
+    metric: month
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 15
+    currency: USD
+    userMultiplied: false
+  - label: Included documents
+    name: included_documents
+    type: tier
+    metric: documents/month
+    limit: 125
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 0
+    userMultiplied: false
+  - label: Overage
+    name: overage
+    type: usage
+    metric: document
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 0.12
+    currency: USD
+    userMultiplied: false
+- id: docraptor-professional
+  name: Professional
+  type: subscription
+  description: $29/month; 325 documents.
+  entries:
+  - label: Plan price
+    name: monthly_price
+    type: flat
+    metric: month
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 29
+    currency: USD
+    userMultiplied: false
+  - label: Included documents
+    name: included_documents
+    type: tier
+    metric: documents/month
+    limit: 325
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 0
+    userMultiplied: false
+- id: docraptor-premium
+  name: Premium
+  type: subscription
+  description: $75/month; 1,250 documents.
+  entries:
+  - label: Plan price
+    name: monthly_price
+    type: flat
+    metric: month
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 75
+    currency: USD
+    userMultiplied: false
+  - label: Included documents
+    name: included_documents
+    type: tier
+    metric: documents/month
+    limit: 1250
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 0
+    userMultiplied: false
+- id: docraptor-max
+  name: Max
+  type: subscription
+  description: $149/month; 5,000 documents.
+  entries:
+  - label: Plan price
+    name: monthly_price
+    type: flat
+    metric: month
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 149
+    currency: USD
+    userMultiplied: false
+  - label: Included documents
+    name: included_documents
+    type: tier
+    metric: documents/month
+    limit: 5000
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 0
+    userMultiplied: false
+- id: docraptor-bronze
+  name: Bronze
+  type: subscription
+  description: $399/month; 15,000 documents.
+  entries:
+  - label: Plan price
+    name: monthly_price
+    type: flat
+    metric: month
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 399
+    currency: USD
+    userMultiplied: false
+  - label: Included documents
+    name: included_documents
+    type: tier
+    metric: documents/month
+    limit: 15000
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 0
+    userMultiplied: false
+- id: docraptor-silver
+  name: Silver
+  type: subscription
+  description: $1,000/month; 40,000 documents.
+  entries:
+  - label: Plan price
+    name: monthly_price
+    type: flat
+    metric: month
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 1000
+    currency: USD
+    userMultiplied: false
+  - label: Included documents
+    name: included_documents
+    type: tier
+    metric: documents/month
+    limit: 40000
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 0
+    userMultiplied: false
+- id: docraptor-gold
+  name: Gold
+  type: subscription
+  description: $2,250/month; 100,000 documents.
+  entries:
+  - label: Plan price
+    name: monthly_price
+    type: flat
+    metric: month
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 2250
+    currency: USD
+    userMultiplied: false
+  - label: Included documents
+    name: included_documents
+    type: tier
+    metric: documents/month
+    limit: 100000
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: 0
+    userMultiplied: false
+- id: docraptor-enterprise
+  name: Enterprise
+  type: enterprise
+  description: Custom pricing for higher volumes.
+  entries:
+  - label: Custom contract
+    name: enterprise_contract
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: annual
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

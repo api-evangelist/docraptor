@@ -5,7 +5,7 @@ provider: DocRaptor
 providerId: docraptor
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
 - Document Generation
 - PDF
@@ -15,10 +15,17 @@ tags:
 - FinOps
 - Cost Management
 - FOCUS
-description: FOCUS-aligned FinOps placeholder for DocRaptor. Pipeline will replace with real billing details.
-notes: Initial scaffold — billing model has not yet been reconciled.
+description: >-
+  FOCUS-aligned FinOps profile for DocRaptor. Billing is a flat monthly tier
+  fee with included documents and a tier-specific per-document overage rate
+  ($0.025–$0.12/doc). Test documents are free and unlimited (watermarked).
+  Annual billing options exist on Bronze and higher.
+notes: >-
+  Optimisation is mostly about right-sizing the monthly tier — effective
+  per-document rate decreases sharply as you climb tiers (Basic ~$0.12/doc,
+  Gold ~$0.025/doc).
 sources:
-- https://docraptor.com/
+- https://docraptor.com/plans
 - https://focus.finops.org/focus-specification/v1-3/
 alignedWith:
   framework: FinOps Foundation Framework
@@ -29,8 +36,8 @@ alignedWith:
 publisherName: DocRaptor
 serviceCategory: Document Generation
 billingModel:
-  pricingCategory: To Be Reconciled
-  billingFrequency: Monthly
+  pricingCategory: Subscription + Usage (overage)
+  billingFrequency: Monthly / Annual
   billingCurrency: USD
   chargeCategories:
   - Usage
@@ -44,23 +51,43 @@ focusColumns:
   InvoiceIssuerName: DocRaptor
   BillingCurrency: USD
   ChargeCategory: Usage
+  PricingUnit: document
 meters:
-- name: api_usage
-  description: Catch-all meter pending reconciliation.
-  unit: varies
+- name: plan_subscription
+  description: Flat monthly DocRaptor plan fee.
+  unit: month
   aggregation: sum
   dimensions:
   - account
-  - resource
+  - tier
+- name: documents_generated
+  description: Production documents generated against the included monthly bundle.
+  unit: document
+  aggregation: sum
+  dimensions:
+  - account
+  - format
+- name: document_overage
+  description: Documents above the included bundle billed at tier overage rate.
+  unit: document
+  aggregation: sum
+  dimensions:
+  - account
+- name: test_documents
+  description: Test (watermarked) documents (informational; not billed).
+  unit: document
+  aggregation: sum
+  dimensions:
+  - account
 principles:
 - name: Visibility
-  description: Pull provider invoices or usage exports until a self-serve usage feed is documented.
+  description: Use DocRaptor account dashboard usage page; reconcile against monthly invoice.
 - name: Allocation
-  description: Tag invoice line items to consuming business units in your FinOps store.
+  description: One API key per app/team; map to FOCUS ResourceTag downstream.
 - name: Optimization
-  description: Levers depend on the provider's billing model; review at renewal once reconciled.
+  description: Step up tier when overage is sustained; cache rendered PDFs server-side; use async to amortise concurrency.
 - name: Accountability
-  description: Assign a contract owner to review billing against negotiated terms.
+  description: Assign API-key owners; alert on monthly burn-down toward bundle.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
