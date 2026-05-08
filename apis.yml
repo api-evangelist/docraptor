@@ -1,0 +1,29 @@
+aid: docraptor
+url: https://raw.githubusercontent.com/api-evangelist/docraptor/refs/heads/main/apis.yml
+name: DocRaptor
+x-type: company
+description: >-
+  DocRaptor is an HTML-to-PDF and HTML-to-Excel generation API powered by Prince XML. Robust handling of CSS-paged media and headers/footers.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Document Generation
+  - PDF
+  - HTML
+  - Excel
+  - API
+created: '2026-05-08'
+modified: '2026-05-08'
+specificationVersion: '0.19'
+apis: []
+common:
+  - type: Website
+    url: https://docraptor.com/
+  - type: Plans
+    url: plans/docraptor-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/docraptor-rate-limits.yml
+  - type: FinOps
+    url: finops/docraptor-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
