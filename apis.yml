@@ -1,7 +1,7 @@
 aid: docraptor
 url: https://raw.githubusercontent.com/api-evangelist/docraptor/refs/heads/main/apis.yml
 name: DocRaptor
-x-type: company
+kind: company
 description: >-
   DocRaptor is an HTML-to-PDF / HTML-to-Excel document generation API powered
   by Prince XML. Strong CSS-paged-media support including headers/footers,
