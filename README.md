@@ -1,38 +1,60 @@
 # DocRaptor (docraptor)
 
-DocRaptor is an HTML-to-PDF / HTML-to-Excel document generation API powered by Prince XML. Strong CSS-paged-media support including headers/footers, page breaks, watermarks and accessibility tags. Synchronous and asynchronous renders; document hosting available.
+DocRaptor is an HTML-to-PDF / HTML-to-Excel document generation API powered by Prince XML. Strong CSS-paged-media support including headers/footers, page breaks, watermarks, accessibility tags. Synchronous and asynchronous document creation; status polling; document hosting.
 
-**APIs.json:** [apis.yml](apis.yml)
-
-## APIs
-- **DocRaptor REST** — `https://api.docraptor.com` — `POST /docs` (sync), `POST /async_docs` + status polling (async). HTTP Basic auth (API key as username). [Docs](https://docraptor.com/documentation).
-
-## OpenAPI
-DocRaptor does not currently publish a downloadable OpenAPI/Swagger document at a stable public URL as of 2026-05-08; pipeline did not retrieve a spec into `openapi/`. SDKs are available for PHP, Python, Node, Ruby, Java and .NET.
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/docraptor/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/docraptor/refs/heads/main/apis.yml)
 
 ## Tags
-Document Generation, PDF, HTML, Excel, API, Prince
 
-## Common Properties
-- [Website](https://docraptor.com/) · [Docs](https://docraptor.com/documentation) · [Pricing](https://docraptor.com/plans) · [GitHub](https://github.com/DocRaptor)
-- [Plans](plans/docraptor-plans-pricing.yml) — reconciled
-- [Rate Limits](rate-limits/docraptor-rate-limits.yml) — partially reconciled (per-second numeric ceiling not public)
-- [FinOps](finops/docraptor-finops.yml) — reconciled, FOCUS-aligned
-
-## Plans (reconciled)
-- **Free** — 5 docs/mo (+ unlimited free watermarked test docs).
-- **Basic** — $15/mo, 125 docs, $0.12/doc overage.
-- **Professional** — $29/mo, 325 docs.
-- **Premium** — $75/mo, 1,250 docs.
-- **Max** — $149/mo, 5,000 docs.
-- **Bronze** — $399/mo, 15,000 docs.
-- **Silver** — $1,000/mo, 40,000 docs.
-- **Gold** — $2,250/mo, 100,000 docs.
-- **Enterprise** — custom.
+- Document Generation
+- PDF
+- HTML
+- Excel
+- API
+- Prince
 
 ## Timestamps
+
 - **Created:** 2026-05-08
 - **Modified:** 2026-05-08
 
+## APIs
+
+### DocRaptor REST API
+
+REST API for generating PDF, XLS, XLSX from HTML/CSS or URL. HTTP Basic auth using API key as username. Sync POST /docs and async POST /async_docs with status polling. Test documents are unlimited and free but watermarked.
+
+- **Human URL:** [https://docraptor.com/documentation](https://docraptor.com/documentation)
+- **Base URL:** `https://api.docraptor.com`
+
+#### Tags
+
+- REST
+- PDF
+- Excel
+- HTML
+- Async
+
+#### Properties
+
+- [Documentation](https://docraptor.com/documentation)
+- [API Reference](https://docraptor.com/documentation/api)
+- [SDK](https://github.com/DocRaptor)
+- [Postman Collection](collections/docraptor.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/docraptor.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+## Common Properties
+
+- [LinkedIn](https://www.linkedin.com/company/docraptor)
+- [Website](https://docraptor.com/)
+- [Documentation](https://docraptor.com/documentation)
+- [Pricing](https://docraptor.com/plans)
+- [Git Hub](https://github.com/DocRaptor)
+- [Plans](plans/docraptor-plans-pricing.yml)
+- [Rate Limits](rate-limits/docraptor-rate-limits.yml)
+- [Fin Ops](finops/docraptor-finops.yml)
+
 ## Maintainers
-- **Kin Lane** — kin@apievangelist.com
+
+**FN:** Kin Lane
+**Email:** kin@apievangelist.com
