@@ -7,7 +7,7 @@ description: >-
   by Prince XML. Strong CSS-paged-media support including headers/footers,
   page breaks, watermarks, accessibility tags. Synchronous and asynchronous
   document creation; status polling; document hosting.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Document Generation
   - PDF
@@ -26,7 +26,7 @@ apis:
       auth using API key as username. Sync POST /docs and async POST
       /async_docs with status polling. Test documents are unlimited and free
       but watermarked.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://docraptor.com/documentation
     baseURL: https://api.docraptor.com
     tags:
