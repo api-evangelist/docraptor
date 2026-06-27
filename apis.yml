@@ -40,7 +40,7 @@ apis:
         url: https://docraptor.com/documentation
       - type: APIReference
         url: https://docraptor.com/documentation/api
-      - type: SDK
+      - type: SDKs
         url: https://github.com/DocRaptor
 common:
   - type: LinkedIn
