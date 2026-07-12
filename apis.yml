@@ -43,6 +43,10 @@ apis:
       - type: SDKs
         url: https://github.com/DocRaptor
 common:
+  - type: DomainSecurity
+    url: security/docraptor-domain-security.yml
+  - type: Authentication
+    url: authentication/docraptor-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/docraptor
   - type: Website
