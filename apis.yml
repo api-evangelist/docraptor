@@ -43,6 +43,8 @@ apis:
       - type: SDKs
         url: https://github.com/DocRaptor
 common:
+  - type: AgenticAccess
+    url: agentic-access/docraptor-agentic-access.yml
   - type: DomainSecurity
     url: security/docraptor-domain-security.yml
   - type: Authentication
