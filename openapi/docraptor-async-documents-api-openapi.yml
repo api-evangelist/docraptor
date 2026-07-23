@@ -1,0 +1,100 @@
+openapi: 3.1.0
+info:
+  title: DocRaptor Async Documents API
+  description: DocRaptor's HTML-to-PDF and HTML-to-Excel document generation REST API, powered by Prince XML. Supports synchronous document generation, async document generation with status polling, document hosting, and document listings. HTTP Basic authentication uses the API key as the username with no password.
+  version: '1.0'
+servers:
+- url: https://api.docraptor.com
+  description: DocRaptor API
+- url: https://docraptor.com
+  description: DocRaptor legacy host
+security:
+- basicAuth: []
+tags:
+- name: Async Documents
+paths:
+  /async_docs:
+    post:
+      tags:
+      - Async Documents
+      summary: Create a document asynchronously
+      description: Initiates asynchronous document generation; returns a status URL.
+      operationId: createAsyncDoc
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Doc'
+      responses:
+        '200':
+          description: Async document accepted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status_id:
+                    type: string
+                  status_url:
+                    type: string
+  /async_docs/{document_id}:
+    get:
+      tags:
+      - Async Documents
+      summary: Get async document status
+      operationId: getAsyncDocStatus
+      parameters:
+      - name: document_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Generation status and download URL
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  download_url:
+                    type: string
+                  download_id:
+                    type: string
+components:
+  schemas:
+    Doc:
+      type: object
+      properties:
+        document_content:
+          type: string
+          description: HTML to convert
+        document_url:
+          type: string
+          format: uri
+          description: URL of HTML page to convert
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - pdf
+          - xls
+          - xlsx
+        test:
+          type: boolean
+          description: Free watermarked test mode
+        javascript:
+          type: boolean
+          description: Enable JavaScript processing
+        prince_options:
+          type: object
+          description: PDF styling/formatting options
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: API key as username, no password
