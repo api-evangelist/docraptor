@@ -7,7 +7,20 @@ description: >-
   by Prince XML. Strong CSS-paged-media support including headers/footers,
   page breaks, watermarks, accessibility tags. Synchronous and asynchronous
   document creation; status polling; document hosting.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/docraptor.png
 tags:
   - Document Generation
   - PDF
@@ -19,29 +32,48 @@ created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
 apis:
-  - aid: docraptor:rest
-    name: DocRaptor REST API
-    description: >-
-      REST API for generating PDF, XLS, XLSX from HTML/CSS or URL. HTTP Basic
-      auth using API key as username. Sync POST /docs and async POST
-      /async_docs with status polling. Test documents are unlimited and free
-      but watermarked.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://docraptor.com/documentation
-    baseURL: https://api.docraptor.com
-    tags:
-      - REST
-      - PDF
-      - Excel
-      - HTML
-      - Async
-    properties:
-      - type: Documentation
-        url: https://docraptor.com/documentation
-      - type: APIReference
-        url: https://docraptor.com/documentation/api
-      - type: SDKs
-        url: https://github.com/DocRaptor
+- aid: docraptor:rest
+  name: DocRaptor REST API
+  description: >-
+    REST API for generating PDF, XLS, XLSX from HTML/CSS or URL. HTTP Basic auth using API key as username.
+    Sync POST /docs and async POST /async_docs with status polling. Test documents are unlimited and free
+    but watermarked.
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docraptor.com/documentation
+  baseURL: https://api.docraptor.com
+  tags:
+  - REST
+  - PDF
+  - Excel
+  - HTML
+  - Async
+  properties:
+  - type: Documentation
+    url: https://docraptor.com/documentation
+  - type: APIReference
+    url: https://docraptor.com/documentation/api
+  - type: SDKs
+    url: https://github.com/DocRaptor
+- aid: docraptor:docraptor-async-documents-api
+  name: DocRaptor Async Documents API
+  description: The Async Documents API from DocRaptor — 2 operation(s) for async documents.
+  humanURL: https://docraptor.com/documentation
+  baseURL: https://api.docraptor.com
+  tags:
+  - Async Documents
+  properties:
+  - type: OpenAPI
+    url: openapi/docraptor-async-documents-api-openapi.yml
+- aid: docraptor:docraptor-documents-api
+  name: DocRaptor Documents API
+  description: The Documents API from DocRaptor — 2 operation(s) for documents.
+  humanURL: https://docraptor.com/documentation
+  baseURL: https://api.docraptor.com
+  tags:
+  - Documents
+  properties:
+  - type: OpenAPI
+    url: openapi/docraptor-documents-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/docraptor-agentic-access.yml
