@@ -1,0 +1,16 @@
+{
+  "provider": "docraptor",
+  "sources": [
+    "docraptor-async-documents-api-openapi.yml",
+    "docraptor-documents-api-openapi.yml"
+  ],
+  "outputs": [
+    "docraptor-async-documents-api-openapi.yml",
+    "docraptor-documents-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
