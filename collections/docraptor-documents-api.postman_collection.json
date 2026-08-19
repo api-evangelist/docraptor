@@ -1,0 +1,237 @@
+{
+  "item": [
+    {
+      "id": "8b145c76-bb25-4fbd-9d77-7dcd0b1f77ea",
+      "name": "Documents",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9aa699dc-faab-44de-87b7-3bb86b7408ae",
+          "name": "Create a document synchronously",
+          "request": {
+            "name": "Create a document synchronously",
+            "description": {
+              "content": "Generate a PDF, XLS, or XLSX document immediately and return the binary content. Test documents are unlimited and free but watermarked.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "docs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/pdf"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"document_content\": \"<string>\",\n  \"document_url\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"test\": \"<boolean>\",\n  \"javascript\": \"<boolean>\",\n  \"prince_options\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d0f2cc4a-1233-4047-a45c-a9b5f7a4431c",
+              "name": "Binary document content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "docs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/pdf"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"document_content\": \"<string>\",\n  \"document_url\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"test\": \"<boolean>\",\n  \"javascript\": \"<boolean>\",\n  \"prince_options\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/pdf"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8ad1077e-9b53-482b-bcfb-f655b160e46e",
+          "name": "Retrieve a previously generated document",
+          "request": {
+            "name": "Retrieve a previously generated document",
+            "description": {},
+            "url": {
+              "path": [
+                "docs",
+                ":document_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "document_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/pdf"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "845f1793-5f9e-4627-a0c4-80638dba4dd9",
+              "name": "Document content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "docs",
+                    ":document_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "document_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/pdf"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/pdf"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.docraptor.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2eb4b9f5-d2a1-466e-a196-d0c541e3189f",
+    "name": "DocRaptor Async Documents API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "DocRaptor's HTML-to-PDF and HTML-to-Excel document generation REST API, powered by Prince XML. Supports synchronous document generation, async document generation with status polling, document hosting, and document listings. HTTP Basic authentication uses the API key as the username with no password.",
+      "type": "text/plain"
+    }
+  }
+}

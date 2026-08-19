@@ -1,0 +1,237 @@
+{
+  "item": [
+    {
+      "id": "3b6f4976-81af-46c2-b447-bdc8b2962b6f",
+      "name": "Async Documents",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "088bdb03-1536-4d99-8acf-843814ae6896",
+          "name": "Create a document asynchronously",
+          "request": {
+            "name": "Create a document asynchronously",
+            "description": {
+              "content": "Initiates asynchronous document generation; returns a status URL.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "async_docs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"document_content\": \"<string>\",\n  \"document_url\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"test\": \"<boolean>\",\n  \"javascript\": \"<boolean>\",\n  \"prince_options\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a09b5aeb-b309-459c-9340-21095ecd6cf9",
+              "name": "Async document accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "async_docs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"document_content\": \"<string>\",\n  \"document_url\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"test\": \"<boolean>\",\n  \"javascript\": \"<boolean>\",\n  \"prince_options\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status_id\": \"string\",\n  \"status_url\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3b77b0eb-84c7-475c-99d6-aeee6488d909",
+          "name": "Get async document status",
+          "request": {
+            "name": "Get async document status",
+            "description": {},
+            "url": {
+              "path": [
+                "async_docs",
+                ":document_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "document_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c9c92538-e6bf-4e9c-98b0-e350edbb9639",
+              "name": "Generation status and download URL",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "async_docs",
+                    ":document_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "document_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"string\",\n  \"download_url\": \"string\",\n  \"download_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.docraptor.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2c9896ea-e302-4117-9356-9ca87cc3a828",
+    "name": "DocRaptor Async Documents API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "DocRaptor's HTML-to-PDF and HTML-to-Excel document generation REST API, powered by Prince XML. Supports synchronous document generation, async document generation with status polling, document hosting, and document listings. HTTP Basic authentication uses the API key as the username with no password.",
+      "type": "text/plain"
+    }
+  }
+}

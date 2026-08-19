@@ -1,0 +1,58 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "DocRaptor Async Documents API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Documents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a document synchronously",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.docraptor.com/docs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate a PDF, XLS, or XLSX document immediately and return the binary content. Test documents are unlimited and free but watermarked."
+        },
+        {
+          "info": {
+            "name": "Retrieve a previously generated document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.docraptor.com/docs/:document_id",
+            "params": [
+              {
+                "name": "document_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a previously generated document"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
