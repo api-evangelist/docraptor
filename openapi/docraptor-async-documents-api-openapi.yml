@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: DocRaptor Async Documents API
   description: DocRaptor's HTML-to-PDF and HTML-to-Excel document generation REST API, powered by Prince XML. Supports synchronous document generation, async document generation with status polling, document hosting, and document listings. HTTP Basic authentication uses the API key as the username with no password.
